@@ -14,7 +14,6 @@ def get_files():
     except:
         pass
     
-    
     return files
 
 
