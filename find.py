@@ -7,8 +7,8 @@ files = []
 def get_files():
     try:
         drives = get_drive_letters()
-        for index, drive_letter in enumerate(drives)):
-            drives[index] = value + '\\'
+        for index, drive_letter in enumerate(drives):
+            drives[index] = drive_letter + '\\'
         for drive in drives:
             get_mp3_files_from_drive(drive)
     except:
