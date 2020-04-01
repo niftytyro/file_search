@@ -7,7 +7,7 @@ files = []
 def get_files():
     try:
         drives = get_drive_letters()
-        for index, value in enumerate(drives)):
+        for index, drive_letter in enumerate(drives)):
             drives[index] = value + '\\'
         for drive in drives:
             get_mp3_files_from_drive(drive)
