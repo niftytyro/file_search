@@ -1,10 +1,10 @@
 import os
 
 letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-files = []
 
 
 def get_files():
+    files = []
     try:
         drives = get_drive_letters()
         for index, drive_letter in enumerate(drives):
@@ -17,7 +17,7 @@ def get_files():
     return files
 
 
-def update_list(path):
+def update_list(path, files):
     files.append(path)
 
 def get_drive_letters():
@@ -33,9 +33,8 @@ def check_file(name):
         return True
     return False
 
-def get_mp3_files_from_drive(drive):
+def get_mp3_files_from_drive(drive, files):
     try:
-        targeted_files = []
         for root, dirs, files in os.walk(drive, topdown=True):
             for d in dirs:
                 ##Uncomment these to search through the hidden folders
@@ -45,7 +44,7 @@ def get_mp3_files_from_drive(drive):
                     ## dirs.remove(d)
             for name in files:
                 if(check_audio(name)):
-                    update_list(os.path.join(root, name))
+                    update_list(os.path.join(root, name), files)
     except:
         pass
 
