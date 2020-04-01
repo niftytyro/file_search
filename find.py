@@ -9,11 +9,10 @@ def get_files():
         drives = get_drive_letters()
         for i in range(len(drives)):
             drives[i] += '\\'
+        for i in range(len(drives)):
+            get_mp3_files_from_drive(drives[i])
     except:
         None
-    for i in range(len(drives)):
-        get_mp3_files_from_drive(drives[i])
-    
     return files
 
 
