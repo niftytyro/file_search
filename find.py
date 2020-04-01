@@ -9,10 +9,11 @@ def get_files():
         drives = get_drive_letters()
         for i in range(len(drives)):
             drives[i] += '\\'
+        for i in range(len(drives)):
+            get_mp3_files_from_drive(drives[i])
     except:
-        None
-    for i in range(len(drives)):
-        get_mp3_files_from_drive(drives[i])
+        pass
+    
     
     return files
 
@@ -47,7 +48,7 @@ def get_mp3_files_from_drive(drive):
                 if(check_audio(name)):
                     update_list(os.path.join(root, name))
     except:
-        None
+        pass
 
 if(__name__ == "__main__"):
     get_files()
